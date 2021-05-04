@@ -39,7 +39,7 @@ class ContactHelper:
     def modify_first_contact(self, contact):
         wd = self.app.wd
         # select first contact and init contact edit
-        wd.find_element_by_xpath("//a[@href='edit.php?id=7']").click()
+        wd.find_element_by_xpath("//tr[2]/td[8]/a").click()
         # fill contact form
         self.fill_contact_form(contact)
         # submit contact edit
