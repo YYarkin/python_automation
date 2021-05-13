@@ -86,3 +86,7 @@ class ContactHelper:
         self.fill_field("ayear", contact.ayear)
         self.fill_field("address2", contact.address2)
         self.fill_field("phone2", contact.phone2)
+
+    def count(self):
+        wd = self.app.wd
+        return len(wd.find_elements_by_name("selected[]"))
