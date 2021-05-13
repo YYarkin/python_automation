@@ -8,7 +8,12 @@ class ContactHelper:
 
     def open_contact_fill_form(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("add new").click()
+        if not self.is_contact_fill_page():
+            wd.find_element_by_link_text("add new").click()
+
+    def is_contact_fill_page(self):
+        wd = self.app.wd
+        return wd.current_url.endswith("/edit.php") and len(wd.find_elements_by_name("submit")) > 0
 
     def return_to_home_page(self):
         wd = self.app.wd
