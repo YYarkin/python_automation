@@ -12,14 +12,19 @@ class GroupHelper:
         wd = self.app.wd
         return wd.current_url.endswith("/group.php") and len(wd.find_elements_by_name("new")) > 0
 
+    def is_home_page(self):
+        wd = self.app.wd
+        return wd.current_url.endswith("addressbook/") and len(wd.find_elements_by_name("add")) > 0
+
     def return_to_group_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("group page").click()
         wd.find_element_by_name("new")
 
-    def return_to_home(self):
+    def open_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        if not self.is_home_page():
+            wd.find_element_by_link_text("home").click()
 
     def create(self, group):
         wd = self.app.wd
@@ -30,7 +35,7 @@ class GroupHelper:
         # submit group creation
         wd.find_element_by_name("submit").click()
         self.return_to_group_page()
-        self.return_to_home()
+        self.open_home_page()
 
     def delete_first_group(self):
         wd = self.app.wd
@@ -39,7 +44,7 @@ class GroupHelper:
         # submit deletion
         wd.find_element_by_name("delete").click()
         self.return_to_group_page()
-        self.return_to_home()
+        self.open_home_page()
 
     def select_first_group(self):
         wd = self.app.wd
@@ -55,7 +60,7 @@ class GroupHelper:
         # submit modification
         wd.find_element_by_name("update").click()
         self.return_to_group_page()
-        self.return_to_home()
+        self.open_home_page()
 
     def fill_group_form(self, group):
         self.fill_field("group_name", group.name)
