@@ -1,4 +1,5 @@
 from selenium.webdriver.support.ui import Select
+from model.contact import Contact
 
 
 class ContactHelper:
@@ -27,6 +28,7 @@ class ContactHelper:
         wd = self.app.wd
         if not self.is_home_page():
             wd.find_element_by_link_text("home").click()
+            wd.find_element_by_name("searchstring")
 
     def create(self, contact):
         wd = self.app.wd
@@ -42,6 +44,7 @@ class ContactHelper:
         # submit deletion
         wd.find_element_by_xpath("//input[@value= 'Delete']").click()
         wd.switch_to_alert().accept()
+        wd.find_element_by_xpath("//div[text()='Record successful deleted']")
         self.open_home_page()
 
     def select_first_contact(self):
@@ -101,3 +104,14 @@ class ContactHelper:
         wd = self.app.wd
         self.open_home_page()
         return len(wd.find_elements_by_name("selected[]"))
+
+    def get_contact_list(self):
+        wd = self.app.wd
+        self.open_home_page()
+        contacts = []
+        for element in wd.find_elements_by_xpath("//tr[@name = 'entry']"):
+            last_name = element.find_element_by_xpath("./td[2]").text
+            first_name = element.find_element_by_xpath("./td[3]").text
+            id = element.find_element_by_xpath(".//input").get_attribute("id")
+            contacts.append(Contact(firstname=first_name, lastname=last_name, id=id))
+        return contacts
