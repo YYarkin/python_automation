@@ -20,3 +20,6 @@ class Group:
             return int(self.id)
         else:
             return maxsize
+
+    def clean(self):
+        return Group(id=self.id, name=self.name.strip().replace('\n', ' '))

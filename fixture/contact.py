@@ -42,6 +42,10 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
+
     #########
     def fill_field(self, field_name, text):
         wd = self.app.wd
@@ -135,6 +139,17 @@ class ContactHelper:
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
 
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        self.open_home_page()
+        self.select_contact_by_id(id)
+        # submit deletion
+        wd.find_element_by_xpath("//input[@value= 'Delete']").click()
+        wd.switch_to_alert().accept()
+        wd.find_element_by_xpath("//div[text()='Record successful deleted']")
+        self.open_home_page()
+        self.contact_cache = None
+
     def modify_contact_by_index(self, index, contact):
         wd = self.app.wd
         self.open_contact_to_modify_by_index(index)
@@ -147,10 +162,24 @@ class ContactHelper:
     def modify_first_contact(self, contact):
         self.modify_contact_by_index(0, contact)
 
+    def modify_contact_by_id(self, id, contact):
+        wd = self.app.wd
+        self.open_contact_to_modify_by_id(id)
+        self.fill_contact_form(contact)
+        # submit contact edit
+        wd.find_element_by_name("update").click()
+        self.return_to_home_page()
+        self.contact_cache = None
+
     def open_contact_to_modify_by_index(self, index):
         wd = self.app.wd
         self.open_home_page()
         wd.find_element_by_xpath("//tr[%s]/td[8]/a" % (index + 2)).click()
+
+    def open_contact_to_modify_by_id(self, id):
+        wd = self.app.wd
+        self.open_home_page()
+        wd.find_element_by_xpath("//input[@id= '%s']/ancestor::tr/td[8]/a" % id).click()
 
     def open_contact_view_by_index(self, index):
         wd = self.app.wd
