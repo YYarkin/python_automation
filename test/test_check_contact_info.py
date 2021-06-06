@@ -2,6 +2,18 @@ import re
 from random import randrange
 
 
+def test_compare_contact_info_on_home_page_with_db(app, db):
+    home_page_contacts = app.contact.get_contact_list()
+    db_contacts = db.get_contact_list()
+    assert len(home_page_contacts) == len(db_contacts)
+    for contact_from_home_page in home_page_contacts:
+        contact_from_db = db_contacts[db_contacts.index(contact_from_home_page)]
+
+        assert contact_from_home_page.address == contact_from_db.address
+        assert contact_from_home_page.all_phones_from_home_page == merge_phones_like_on_home_page(contact_from_db)
+        assert contact_from_home_page.all_email_from_home_page == merge_email_like_on_home_page(contact_from_db)
+
+
 def test_check_contact_info_on_home_page(app):
     home_page_contacts = app.contact.get_contact_list()
     index = randrange(len(home_page_contacts))
@@ -25,5 +37,5 @@ def merge_phones_like_on_home_page(contact):
 
 
 def merge_email_like_on_home_page(contact):
-    return "\n".join(filter(lambda x: x != "", filter(lambda x: x is not None, [
-        contact.email1, contact.email2, contact.email3])))
+    return re.sub(" +", " ", "\n".join(filter(lambda x: x != "", filter(lambda x: x is not None, [
+        contact.email1.strip(), contact.email2.strip(), contact.email3.strip()]))))
