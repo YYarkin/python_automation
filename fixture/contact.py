@@ -186,6 +186,34 @@ class ContactHelper:
         self.open_home_page()
         wd.find_element_by_xpath("//tr[%s]/td[7]/a" % (index + 2)).click()
 
+    def add_contact_with_id_to_group_with_id(self, contact_id, group_id):
+        wd = self.app.wd
+        self.open_home_page()
+        self.select_contact_by_id(contact_id)
+        self.select_group_from_drop_list_by_id(group_id)
+        # submit contact add
+        wd.find_element_by_css_selector("input[name=add]").click()
+        self.open_home_page()
+
+    def select_group_from_drop_list_by_id(self, group_id):
+        wd = self.app.wd
+        Select(wd.find_element_by_name("to_group")).select_by_value(group_id)
+
+    def delete_contact_with_id_from_group_with_id(self, contact_id, group_id):
+        wd = self.app.wd
+        self.open_home_page()
+        self.open_page_contacts_for_group_with_id(group_id)
+        self.select_contact_by_id(contact_id)
+        # submit contact delete from group
+        wd.find_element_by_name("remove").click()
+        self.open_home_page()
+
+    def open_page_contacts_for_group_with_id(self, group_id):
+        wd = self.app.wd
+        Select(wd.find_element_by_name("group")).select_by_value(group_id)
+        wd.find_element_by_name("remove")
+
+    #########
     def get_contact_info_from_edit_page(self, index):
         wd = self.app.wd
         self.open_contact_to_modify_by_index(index)
