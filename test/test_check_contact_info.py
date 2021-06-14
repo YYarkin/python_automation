@@ -1,6 +1,7 @@
 import re
 from functools import reduce
 from random import randrange
+from model.contact import Contact
 
 
 def test_compare_contact_info_on_home_page_with_db(app, db):
@@ -18,6 +19,21 @@ def test_compare_contact_info_on_home_page_with_db(app, db):
 
         assert contact_from_home_page.all_phones_from_home_page == merge_phones_like_on_home_page(contact_from_db)
         assert contact_from_home_page.all_email_from_home_page == merge_email_like_on_home_page(contact_from_db)
+
+
+def test_compare_contact_info_on_home_page_with_db_v2(app, db):
+    home_page_contacts = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
+    db_contacts = sorted(db.get_contact_list(), key=Contact.id_or_max)
+    assert len(home_page_contacts) == len(db_contacts)
+    for i in range(len(home_page_contacts)):
+        assert home_page_contacts[i].id == db_contacts[i].id
+
+        assert home_page_contacts[i].firstname == merge_like_on_home_page(db_contacts[i].firstname)
+        assert home_page_contacts[i].lastname == merge_like_on_home_page(db_contacts[i].lastname)
+        assert home_page_contacts[i].address == merge_like_on_home_page(db_contacts[i].address)
+
+        assert home_page_contacts[i].all_phones_from_home_page == merge_phones_like_on_home_page(db_contacts[i])
+        assert home_page_contacts[i].all_email_from_home_page == merge_email_like_on_home_page(db_contacts[i])
 
 
 def test_check_contact_info_on_home_page(app):
