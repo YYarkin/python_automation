@@ -1,0 +1,26 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert [269:name2;he..., 283:;;, ...] == [269:name2;hea..., 283:;;, ...]\n  Left contains more items, first extra item: None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=\n  Use -v to get the full diff",
+      "children" : [ {
+        "name" : "Тест: добавление группы в справочник групп",
+        "uid" : "44f7424060aa4c66",
+        "parentUid" : "74301832b72960d3ead8dc5c3de191ab",
+        "status" : "failed",
+        "time" : {
+          "start" : 1624791649865,
+          "stop" : 1624791650799,
+          "duration" : 934
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=" ]
+      } ],
+      "uid" : "74301832b72960d3ead8dc5c3de191ab"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}

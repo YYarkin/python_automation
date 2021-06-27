@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Jun 27 14:00:44 MSK 2021","Sun Jun 27 14:00:45 MSK 2021","1028","test","test_add_group","","","","Тест: добавление группы в справочник групп",""
+"passed","Sun Jun 27 14:00:48 MSK 2021","Sun Jun 27 14:00:49 MSK 2021","929","test","test_add_group","","","","Тест: добавление группы в справочник групп",""
+"passed","Sun Jun 27 14:00:45 MSK 2021","Sun Jun 27 14:00:46 MSK 2021","937","test","test_add_group","","","","Тест: добавление группы в справочник групп",""
+"passed","Sun Jun 27 14:00:47 MSK 2021","Sun Jun 27 14:00:48 MSK 2021","933","test","test_add_group","","","","Тест: добавление группы в справочник групп",""
+"passed","Sun Jun 27 14:00:46 MSK 2021","Sun Jun 27 14:00:47 MSK 2021","953","test","test_add_group","","","","Тест: добавление группы в справочник групп",""
+"failed","Sun Jun 27 14:00:49 MSK 2021","Sun Jun 27 14:00:50 MSK 2021","934","test","test_add_group","","","","Тест: добавление группы в справочник групп",""

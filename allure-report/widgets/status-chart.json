@@ -1,0 +1,61 @@
+[ {
+  "uid" : "e6f44b09890e197",
+  "name" : "Тест: добавление группы в справочник групп",
+  "time" : {
+    "start" : 1624791644863,
+    "stop" : 1624791645891,
+    "duration" : 1028
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "eb80bee8e406d6e0",
+  "name" : "Тест: добавление группы в справочник групп",
+  "time" : {
+    "start" : 1624791648893,
+    "stop" : 1624791649822,
+    "duration" : 929
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e592a48063036737",
+  "name" : "Тест: добавление группы в справочник групп",
+  "time" : {
+    "start" : 1624791645937,
+    "stop" : 1624791646874,
+    "duration" : 937
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "34b00920b7ebdb0e",
+  "name" : "Тест: добавление группы в справочник групп",
+  "time" : {
+    "start" : 1624791647918,
+    "stop" : 1624791648851,
+    "duration" : 933
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5ef7dbec00303f09",
+  "name" : "Тест: добавление группы в справочник групп",
+  "time" : {
+    "start" : 1624791646924,
+    "stop" : 1624791647877,
+    "duration" : 953
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "44f7424060aa4c66",
+  "name" : "Тест: добавление группы в справочник групп",
+  "time" : {
+    "start" : 1624791649865,
+    "stop" : 1624791650799,
+    "duration" : 934
+  },
+  "status" : "failed",
+  "severity" : "normal"
+} ]

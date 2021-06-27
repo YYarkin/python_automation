@@ -1,0 +1,276 @@
+{
+  "uid" : "44f7424060aa4c66",
+  "name" : "Тест: добавление группы в справочник групп",
+  "fullName" : "test.test_add_group#test_add_group[None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=]",
+  "historyId" : "43e1b373dc5fba16d905256165633099",
+  "time" : {
+    "start" : 1624791649865,
+    "stop" : 1624791650799,
+    "duration" : 934
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert [269:name2;he..., 283:;;, ...] == [269:name2;hea..., 283:;;, ...]\n  Left contains more items, first extra item: None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=\n  Use -v to get the full diff",
+  "statusTrace" : "app = <fixture.application.Application object at 0x000002CF4DE69E80>\ndb = <fixture.db.DbFixture object at 0x000002CF4DE3FB80>, check_ui = False\njson_groups = None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=\n\n    @allure.title(\"Тест: добавление группы в справочник групп\")\n    def test_add_group(app, db, check_ui, json_groups):\n        group = json_groups\n        old_groups = db.get_group_list()\n        app.group.create(group)\n        with allure.step('Проверяем эквивалентность нового списка групп со старым с добавленной группой'):\n            with allure.step('Получаем новый список групп'):\n                new_groups = db.get_group_list()\n            with allure.step('Добавляем новую групп к старому списку групп'):\n                old_groups.append(group)\n            with allure.step('Сравниваем отсортированные списки групп'):\n>               assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\nE               AssertionError: assert [269:name2;he..., 283:;;, ...] == [269:name2;hea..., 283:;;, ...]\nE                 Left contains more items, first extra item: None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=\nE                 Use -v to get the full diff\n\ntest\\test_add_group.py:17: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "stop",
+    "time" : {
+      "start" : 1624791638443,
+      "stop" : 1624791638443,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "check_ui",
+    "time" : {
+      "start" : 1624791649864,
+      "stop" : 1624791649865,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "app",
+    "time" : {
+      "start" : 1624791649825,
+      "stop" : 1624791649864,
+      "duration" : 39
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "db",
+    "time" : {
+      "start" : 1624791638443,
+      "stop" : 1624791638447,
+      "duration" : 4
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert [269:name2;he..., 283:;;, ...] == [269:name2;hea..., 283:;;, ...]\n  Left contains more items, first extra item: None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=\n  Use -v to get the full diff",
+    "statusTrace" : "app = <fixture.application.Application object at 0x000002CF4DE69E80>\ndb = <fixture.db.DbFixture object at 0x000002CF4DE3FB80>, check_ui = False\njson_groups = None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=\n\n    @allure.title(\"Тест: добавление группы в справочник групп\")\n    def test_add_group(app, db, check_ui, json_groups):\n        group = json_groups\n        old_groups = db.get_group_list()\n        app.group.create(group)\n        with allure.step('Проверяем эквивалентность нового списка групп со старым с добавленной группой'):\n            with allure.step('Получаем новый список групп'):\n                new_groups = db.get_group_list()\n            with allure.step('Добавляем новую групп к старому списку групп'):\n                old_groups.append(group)\n            with allure.step('Сравниваем отсортированные списки групп'):\n>               assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\nE               AssertionError: assert [269:name2;he..., 283:;;, ...] == [269:name2;hea..., 283:;;, ...]\nE                 Left contains more items, first extra item: None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=\nE                 Use -v to get the full diff\n\ntest\\test_add_group.py:17: AssertionError",
+    "steps" : [ {
+      "name" : "Получен список групп из БД",
+      "time" : {
+        "start" : 1624791649865,
+        "stop" : 1624791649866,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "Создаем группу \"<fixture.group.GroupHelper object at 0x000002CF4DE510D0>\" через UI-интерфейс",
+      "time" : {
+        "start" : 1624791649866,
+        "stop" : 1624791650796,
+        "duration" : 930
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "group",
+        "value" : "None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(="
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "Проверяем эквивалентность нового списка групп со старым с добавленной группой",
+      "time" : {
+        "start" : 1624791650796,
+        "stop" : 1624791650798,
+        "duration" : 2
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: assert [269:name2;he..., 283:;;, ...] == [269:name2;hea..., 283:;;, ...]\n  Left contains more items, first extra item: None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=\n  Use -v to get the full diff\n",
+      "statusTrace" : "  File \"C:\\Users\\Beldgar\\PycharmProjects\\python_automation\\test\\test_add_group.py\", line 17, in test_add_group\n    assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\n",
+      "steps" : [ {
+        "name" : "Получаем новый список групп",
+        "time" : {
+          "start" : 1624791650796,
+          "stop" : 1624791650798,
+          "duration" : 2
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "Получен список групп из БД",
+          "time" : {
+            "start" : 1624791650797,
+            "stop" : 1624791650798,
+            "duration" : 1
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false,
+          "stepsCount" : 0
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true,
+        "stepsCount" : 1
+      }, {
+        "name" : "Добавляем новую групп к старому списку групп",
+        "time" : {
+          "start" : 1624791650798,
+          "stop" : 1624791650798,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false,
+        "stepsCount" : 0
+      }, {
+        "name" : "Сравниваем отсортированные списки групп",
+        "time" : {
+          "start" : 1624791650798,
+          "stop" : 1624791650798,
+          "duration" : 0
+        },
+        "status" : "failed",
+        "statusMessage" : "AssertionError: assert [269:name2;he..., 283:;;, ...] == [269:name2;hea..., 283:;;, ...]\n  Left contains more items, first extra item: None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=\n  Use -v to get the full diff\n",
+        "statusTrace" : "  File \"C:\\Users\\Beldgar\\PycharmProjects\\python_automation\\test\\test_add_group.py\", line 17, in test_add_group\n    assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\n",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : true,
+        "hasContent" : true,
+        "stepsCount" : 0
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 4
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true,
+    "stepsCount" : 7
+  },
+  "afterStages" : [ {
+    "name" : "stop::fin",
+    "time" : {
+      "start" : 1624791650837,
+      "stop" : 1624791651203,
+      "duration" : 366
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  }, {
+    "name" : "db::fin",
+    "time" : {
+      "start" : 1624791650836,
+      "stop" : 1624791650837,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test"
+  }, {
+    "name" : "suite",
+    "value" : "test_add_group"
+  }, {
+    "name" : "host",
+    "value" : "Beldgar"
+  }, {
+    "name" : "thread",
+    "value" : "2480-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test.test_add_group"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "json_groups",
+    "value" : "None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(="
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "44f7424060aa4c66.json",
+  "parameterValues" : [ "None:nameB;headerP.QZc|Ae;ysG`;footer/I'+SeDvv~Jy(=" ]
+}
