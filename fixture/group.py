@@ -1,4 +1,5 @@
 from model.group import Group
+import allure
 
 
 class GroupHelper:
@@ -77,6 +78,7 @@ class GroupHelper:
         return len(wd.find_elements_by_name("selected[]"))
 
     #########
+    @allure.step('Создаем группу "{0}" через UI-интерфейс')
     def create(self, group):
         wd = self.app.wd
         self.open_group_page()

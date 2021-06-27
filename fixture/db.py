@@ -1,4 +1,5 @@
 import pymysql.cursors
+import allure
 from model.group import Group
 from model.contact import Contact
 
@@ -12,6 +13,7 @@ class DbFixture:
         self.password = password
         self.connection = pymysql.connect(host=host, database=name, user=user, password=password, autocommit=True)
 
+    @allure.step('Получен список групп из БД')
     def get_group_list(self):
         list = []
         cursor = self.connection.cursor()
