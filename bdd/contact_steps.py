@@ -4,12 +4,12 @@ from model.contact import Contact
 import random
 
 
-@given('a contact list')
+@given('a contact list',  target_fixture="contact_list")
 def contact_list(db):
     return db.get_contact_list()
 
 
-@given('a contact with <firstname>, <lastname> and <mobile_phone>')
+@given('a contact with <firstname>, <lastname> and <mobile_phone>', target_fixture="new_contact")
 def new_contact(firstname, lastname, mobile_phone):
     return Contact(
         firstname=firstname, lastname=lastname, mobile_phone=mobile_phone)
@@ -31,14 +31,14 @@ def verify_contact_added(db, contact_list, new_contact, app, check_ui):
                                                                                          key=Contact.id_or_max)
 
 
-@given('a non-empty contact list')
+@given('a non-empty contact list', target_fixture="non_empty_contact_list")
 def non_empty_contact_list(app, db):
     if len(db.get_contact_list()) == 0:
         app.contact.create(Contact(firstname="test", lastname="testov"))
     return db.get_contact_list()
 
 
-@given('a random contact from the list')
+@given('a random contact from the list', target_fixture="random_contact")
 def random_contact(non_empty_contact_list):
     return random.choice(non_empty_contact_list)
 
